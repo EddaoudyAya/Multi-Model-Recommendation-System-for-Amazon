@@ -1,4 +1,4 @@
-# 🧠 Multi-Model Recommendation System for Amazon
+
 <h1 align="center">
   <img src="Images/amazon_logo.png" alt="Amazon Logo" width="45" />
   Multi-Model Recommendation System for Amazon
