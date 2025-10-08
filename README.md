@@ -1,13 +1,13 @@
 # 🧠 Multi-Model Recommendation System for Amazon
 
-## 📘 Project Overview
+##  Project Overview
 This project presents the design, implementation, and deployment of an **intelligent, modular, and scalable recommendation system** for Amazon products. It integrates **four recommendation approaches** and a **sentiment analysis module**, all accessible through an **interactive Streamlit web application**.
 
 The goal is to provide personalized, diverse, and accurate product recommendations while addressing **cold-start**, **data sparsity**, and **user preference variability**.
 
 ---
 
-## 🚀 Key Features
+##  Key Features
 - **Four Recommendation Models:**
   - **Popularity-Based Filtering** – For cold-start users with no history
   - **Content-Based Filtering** – TF-IDF on product descriptions using cosine similarity
@@ -31,7 +31,7 @@ The goal is to provide personalized, diverse, and accurate product recommendatio
 
 ---
 
-## 🧩 System Architecture
+##  System Architecture
 
 ### 📊 Data Pipeline
 1. **Data Collection** – Amazon Reviews 2023 dataset from McAuley Lab
@@ -46,13 +46,13 @@ The goal is to provide personalized, diverse, and accurate product recommendatio
 - **Web Framework:** Streamlit
 - **Visualization:** Matplotlib, Tableau
 
-📸 **Architecture Diagram:**
+  **Architecture Diagram:**
 
 ![System Architecture](Images/architecture.png)
 
 ---
 
-## 🧠 Models and Methodology
+##  Models and Methodology
 
 ### 🔹 Popularity-Based Filtering
 Ranks products based on their average rating and number of reviews. Ideal for new users.
@@ -75,7 +75,7 @@ Weighted fusion of the above three models — ensures robust performance across 
 
 ## 📈 Model Evaluation
 
-### 🧮 Recommendation Model Results (sample of 1,000 products)
+###  Recommendation Model Results (sample of 1,000 products)
 | Method | Precision | Recall | Diversity |
 |--------|-----------|--------|-----------|
 | Content-Based | 47.4% | 47.4% | 0.986 |
@@ -84,7 +84,7 @@ Weighted fusion of the above three models — ensures robust performance across 
 
 > ⚠️ **Note:** Results on small datasets suffer from sparsity. Full-scale tests (>100K items) show improved collaborative filtering (>30% precision).
 
-### 🧠 Sentiment Analysis Model Results
+###  Sentiment Analysis Model Results
 | Model | Accuracy | Status |
 |-------|----------|--------|
 | SVC (C=0.01) | 66.08% | – |
