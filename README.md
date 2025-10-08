@@ -1,8 +1,8 @@
 
-<h1 align="center">
-  <img src="Amazon.png" alt="Amazon Logo" width="90" />
-  Multi-Model Recommendation System for Amazon
-</h1>
+<h1 align="center">🛒 Multi-Model Recommendation System for Amazon</h1>
+<p align="center">
+  <img src="Images/Amazon.png" alt="Amazon Logo" width="70" />
+</p>
 
 
 ##  Project Overview
