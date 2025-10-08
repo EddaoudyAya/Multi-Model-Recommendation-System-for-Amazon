@@ -46,7 +46,8 @@ The goal is to provide personalized, diverse, and accurate product recommendatio
 - **Web Framework:** Streamlit
 - **Visualization:** Matplotlib, Tableau
 
-📸 **Architecture Diagram:**  
+📸 **Architecture Diagram:**
+
 ![System Architecture](Images/architecture.png)
 
 ---
