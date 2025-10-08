@@ -93,6 +93,7 @@ Weighted fusion of the above three models — ensures robust performance across 
 ---
 
 ## 🖥️ Application Interface (Streamlit)
+
 The Streamlit dashboard allows users to:
 1. Choose a recommendation model (Content, Collaborative, Hybrid, Popularity)
 2. Select or search for a product
@@ -100,6 +101,7 @@ The Streamlit dashboard allows users to:
 4. Explore visual results dynamically
 
 📸 **Application Interface Screenshots:**  
+
 ![App Interface 1](Images/app1.png)
 ![App Interface 2](Images/app2.png)
 ![App Interface 3](Images/app3.png)
@@ -148,15 +150,14 @@ streamlit run appstreamlit.py
 - **Sentiment analysis** enriches recommendation personalization.
 - **Hybrid model** ensures balance between accuracy, diversity, and scalability.
 
----
 
-## 👥 Team & Supervision
-- **Team Members:** AHNIN Chaimaa, BNYICHE Mouna, **EDDAOUDY Aya**, EL ALAMI Nihad
-- **Supervisor:** Prof. SASSI Imad
 
----
+
+
+
+
 
 ## 📬 Contact
-For questions, feedback, or contributions, please contact: **eddaya@gmail.com**
+For questions, feedback, or contributions, please contact: **eddaya83@gmail.com**
 
-> *This README merges all project documentation into one complete and clear format, with embedded architecture and application screenshots.*
+
