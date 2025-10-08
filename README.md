@@ -100,11 +100,11 @@ The Streamlit dashboard allows users to:
 4. Explore visual results dynamically
 
 📸 **Application Interface Screenshots:**  
-![App Interface 1](Images/app_1.png)
-![App Interface 2](Images/app_2.png)
-![App Interface 3](Images/app_3.png)
-![App Interface 4](Images/app_4.png)
-
+![App Interface 1](Images/app1.png)
+![App Interface 2](Images/app2.png)
+![App Interface 3](Images/app3.png)
+![App Interface 4](Images/app4.png)
+![App Interface 4](Images/app5.png)
 ---
 
 ## ⚙️ Installation & Usage
