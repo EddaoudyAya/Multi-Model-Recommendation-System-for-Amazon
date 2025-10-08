@@ -3,6 +3,11 @@
   Multi-Model Recommendation System for Amazon
 </h1>
 
+<h1>
+  <img src="Images/Amazon.png" alt="Amazon Logo" width="110" align="center" />
+  &nbsp;Multi-Model Recommendation System for Amazon
+</h1>
+
 
 ##  Project Overview
 This project presents the design, implementation, and deployment of an **intelligent, modular, and scalable recommendation system** for Amazon products. It integrates **four recommendation approaches** and a **sentiment analysis module**, all accessible through an **interactive Streamlit web application**.
