@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="Images/Amazon.png" alt="Amazon Logo" width="60" />
+  <img src="Images/Amazon.png" alt="Amazon Logo" width="70" />
   Multi-Model Recommendation System for Amazon
 </h1>
 
