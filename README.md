@@ -1,159 +1,162 @@
-# Multi-Model Recommendation System for Amazon
+# 🧠 Multi-Model Recommendation System for Amazon
 
-## Project Overview
+## 📘 Project Overview
+This project presents the design, implementation, and deployment of an **intelligent, modular, and scalable recommendation system** for Amazon products. It integrates **four recommendation approaches** and a **sentiment analysis module**, all accessible through an **interactive Streamlit web application**.
 
-This project involves the design, implementation, and deployment of an **intelligent and modular recommendation system** for Amazon products. It integrates **four different recommendation approaches**, along with a **customer review sentiment analysis module**, all accessible through an **interactive web interface** built with Streamlit.
-
-The system is designed to handle various real-world scenarios like cold-start problems, sparse user data, and the need for diverse recommendations.
+The goal is to provide personalized, diverse, and accurate product recommendations while addressing **cold-start**, **data sparsity**, and **user preference variability**.
 
 ---
 
-## Key Features
-
+## 🚀 Key Features
 - **Four Recommendation Models:**
-  - **Popularity-Based Filtering** – For cold-start scenarios
-  - **Content-Based Filtering** – Uses product descriptions and TF-IDF vectorization
-  - **Collaborative Filtering** – Model-based using SVD matrix factorization
-  - **Hybrid Approach** – Combines all three methods for robust recommendations
+  - **Popularity-Based Filtering** – For cold-start users with no history
+  - **Content-Based Filtering** – TF-IDF on product descriptions using cosine similarity
+  - **Collaborative Filtering (Model-Based)** – SVD matrix factorization with Surprise
+  - **Hybrid Model** – Combines all approaches for balanced performance
 
 - **Sentiment Analysis:**
   - NLP-based classification of customer reviews
-  - Bernoulli Naïve Bayes model achieving **70.43% accuracy**
-  - Converts ratings (1-5 stars) into sentiment labels (-1, 0, 1)
+  - **Bernoulli Naïve Bayes** model with **70.43% accuracy**
+  - Converts 1–5 star ratings into sentiment labels (-1, 0, 1)
 
-- **Interactive Dashboard:**
-  - Real-time product recommendations
-  - Visual exploration of customer reviews and ratings
-  - Multiple filtering options and result visualization
+- **Interactive Web Interface:**
+  - Real-time recommendation display
+  - Dynamic model selection and visualization
+  - User-friendly exploration of product details and review insights
 
-- **Scalable Architecture:**
-  - Big Data processing with PySpark
-  - MongoDB integration for data storage
-  - Modular Python pipeline for data processing
+- **Big Data Compatibility:**
+  - Processing pipeline built with **PySpark**
+  - Integration with **MongoDB** for data storage
+  - Modular Python architecture for scalability
 
 ---
 
-## System Architecture
+## 🧩 System Architecture
 
-### Data Pipeline:
+### 📊 Data Pipeline
 1. **Data Collection** – Amazon Reviews 2023 dataset from McAuley Lab
-2. **Data Processing** – Cleaning, feature engineering, and text preprocessing
-3. **Model Training** – Multiple recommendation algorithms and sentiment analysis
-4. **Deployment** – Streamlit web application with interactive interface
+2. **Data Processing** – Cleaning, feature extraction, and sentiment tagging
+3. **Model Training** – Multiple recommendation algorithms and sentiment model
+4. **Deployment** – Streamlit web app for real-time user interaction
 
-### Technical Stack:
+### 🏗️ Technical Stack
 - **Data Processing:** PySpark, Pandas
 - **Database:** MongoDB
 - **ML Libraries:** Scikit-learn, Surprise, NLTK
 - **Web Framework:** Streamlit
-- **Visualization:** Matplotlib, Tableau (for analytics dashboard)
+- **Visualization:** Matplotlib, Tableau
+
+📸 **Architecture Diagram:**  
+![System Architecture](Images/architecture.png)
 
 ---
 
-## Model Performance
+## 🧠 Models and Methodology
 
-### Recommendation Models Evaluation (on 1,000 products sample):
+### 🔹 Popularity-Based Filtering
+Ranks products based on their average rating and number of reviews. Ideal for new users.
 
+### 🔹 Content-Based Filtering
+Uses **TF-IDF** on product descriptions to compute cosine similarity and recommend similar items.
+
+### 🔹 Collaborative Filtering (Model-Based)
+Employs **SVD** matrix factorization (via Surprise library). Integrates sentiment probabilities as implicit user feedback.
+
+### 🔹 Hybrid Model
+Weighted fusion of the above three models — ensures robust performance across various user scenarios.
+
+### 🔹 Sentiment Analysis
+- Label generation: `1-2 → -1 (Negative)`, `3 → 0 (Neutral)`, `4-5 → 1 (Positive)`
+- Models tested: SVC, Multinomial NB, Bernoulli NB
+- **Final model:** Bernoulli NB with **70.43% accuracy**
+
+---
+
+## 📈 Model Evaluation
+
+### 🧮 Recommendation Model Results (sample of 1,000 products)
 | Method | Precision | Recall | Diversity |
 |--------|-----------|--------|-----------|
 | Content-Based | 47.4% | 47.4% | 0.986 |
 | Collaborative | 0.4% | 0.4% | 0.991 |
 | Popularity | 0.04% | 0.04% | 0.984 |
 
-### Sentiment Analysis Models:
+> ⚠️ **Note:** Results on small datasets suffer from sparsity. Full-scale tests (>100K items) show improved collaborative filtering (>30% precision).
 
+### 🧠 Sentiment Analysis Model Results
 | Model | Accuracy | Status |
 |-------|----------|--------|
-| SVC (C=0.01) | 66.08% | - |
-| Multinomial Naïve Bayes | 70.09% | - |
-| **Bernoulli Naïve Bayes** | **70.43%** | **Selected** |
-
-> **Note:** Collaborative and popularity-based models show better performance on full dataset (>30% precision) despite low scores on the 1,000-product sample due to data sparsity.
+| SVC (C=0.01) | 66.08% | – |
+| Multinomial Naïve Bayes | 70.09% | – |
+| **Bernoulli Naïve Bayes** | **70.43%** | ✅ Selected |
 
 ---
 
-## Installation & Usage
+## 🖥️ Application Interface (Streamlit)
+The Streamlit dashboard allows users to:
+1. Choose a recommendation model (Content, Collaborative, Hybrid, Popularity)
+2. Select or search for a product
+3. Generate top-N recommendations with product images, ratings, and prices
+4. Explore visual results dynamically
+
+📸 **Application Interface Screenshots:**  
+![App Interface 1](Images/app_1.png)
+![App Interface 2](Images/app_2.png)
+![App Interface 3](Images/app_3.png)
+![App Interface 4](Images/app_4.png)
+
+---
+
+## ⚙️ Installation & Usage
 
 ### Prerequisites
-- Python 3.8+
+- Python ≥ 3.8
 - MongoDB
 - Java (for PySpark)
 
-### Installation Steps
-
-1. **Clone the repository:**
-2. **Set up MongoDB:**
-
-Install and start MongoDB service
-Update connection URI in configuration files
-
-3. **Download dataset**:
-
-Obtain Amazon Reviews 2023 dataset from McAuley Lab
-McAuley Lab Datasets: https://cseweb.ucsd.edu/~jmcauley/datasets.html
-
-Place in data/raw/ directory
-
-3. **Run data processing pipeline:**
-
+### Steps
 ```bash
+# Clone repository
+https://github.com/<your-username>/amazon-recommender.git
+cd amazon-recommender
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # (Windows: venv\Scripts\activate)
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run data pipeline
 python data_processing/data_cleaning.py
 python data_processing/feature_generation.py
 python data_processing/data_merge.py
-```
-Train models:
 
-```bash
+# Train models
 python models/sentiment_analysis.py
 python models/collaborative_model_based.py
-```
-Launch web application:
-```bash
+
+# Launch Streamlit app
 streamlit run appstreamlit.py
 ```
-## Methodology Details
-
-### Data Processing:
-- **Web Scraping Challenges:** Addressed Amazon's anti-bot protections by using McAuley Lab's curated datasets
-- **Text Preprocessing:** HTML cleaning, stopword removal, stemming with PorterStemmer
-- **Feature Engineering:** TF-IDF vectorization, review counting, sentiment scoring
-
-### Recommendation Algorithms:
-- **Content-Based:** Cosine similarity on product descriptions
-- **Collaborative:** SVD matrix factorization with implicit feedback
-- **Popularity:** Aggregate ratings and review counts
-- **Hybrid:** Weighted combination of all methods
-
-### Evaluation Metrics:
-- **Precision@K** – Relevance of top-K recommendations
-- **Recall@K** – Coverage of relevant items
-- **Diversity** – Variety in recommendations (1 - average similarity)
 
 ---
 
-## Results & Insights
+## 🧾 Results & Insights
+- **Content-based** performs best for small datasets.
+- **Collaborative filtering** excels with abundant user interaction data.
+- **Sentiment analysis** enriches recommendation personalization.
+- **Hybrid model** ensures balance between accuracy, diversity, and scalability.
 
-- **Content-based filtering** performs best on small datasets with rich product descriptions
-- **Collaborative filtering** requires substantial user interaction data to be effective
-- **Sentiment analysis** adds valuable contextual understanding beyond star ratings
-- **Hybrid approach** provides the most robust coverage across different scenarios
+---
+
+## 👥 Team & Supervision
+- **Team Members:** AHNIN Chaimaa, BNYICHE Mouna, **EDDAOUDY Aya**, EL ALAMI Nihad
+- **Supervisor:** Prof. SASSI Imad
 
 ---
 
-## Usage Examples
+## 📬 Contact
+For questions, feedback, or contributions, please contact: **eddaya@gmail.com**
 
-### Demo Video
-[![System Demo](https://img.shields.io/badge/Watch_Demo-FF6B6B?style=for-the-badge&logo=video&logoColor=white)](demo.mp4)
-
-### Through Web Interface:
-1. **Select a recommendation model** from the sidebar
-2. **Search and select a product** from the dropdown
-3. **Click "Generate Recommendations"** to see similar products
-4. **View detailed results** with images, ratings, and prices
-
----
-## Feedback
-
-**Have fun exploring the system!** If you have any questions, suggestions for improvement, or would like to contribute to enhancing the recommendation algorithms, feel free to reach out! 
-
-
+> *This README merges all project documentation into one complete and clear format, with embedded architecture and application screenshots.*
