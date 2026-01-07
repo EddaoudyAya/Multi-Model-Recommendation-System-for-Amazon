@@ -159,6 +159,147 @@ streamlit run appstreamlit.py
 
 
 
+## OAR Data Pipeline – End-to-End Mini Traceability Project
+ # Project Overview
+
+This project implements an end-to-end data pipeline based on the Open Apparel Registry (OAR) / Open Supply Hub public data.
+The objective is to demonstrate the ability to work with real-world supply chain data by building a fully automated pipeline covering:
+
+1.Data ingestion and consolidation
+
+2.Data cleaning and normalization
+
+3.Facility and company processing
+
+4.Relational structuring
+
+5.Basic analytics
+
+6.A lightweight AI component
+
+All steps are implemented in Python, follow a modular design, and are orchestrated through a single entry point (main.py).
+
+# Project Structure
+OAR_DATA_PIPELINE/
+│
+├── data/
+│   ├── raw/                  # Original raw CSV exports (no manual edits)
+│   ├── intermediate/          # Pipeline intermediate outputs
+│   │   ├── analytics/         # Charts generated during analytics phase
+│   │   └── relational/        # Normalized relational tables
+│   └── final/                 # Final exported datasets and reports
+│
+├── scrape_oar.py              # Phase 1 – Raw data merge & ingestion
+├── clean_companies.py         # Phase 2 – Company cleaning & ID generation
+├── clean_facilities.py        # Phase 3 – Facility processing & linking
+├── relational_builder.py      # Phase 4 – Relational consistency checks
+├── analytics_dashboards.py    # Phase 5 – Analytics & visualizations
+├── ai_module.py               # Phase 6 – AI module (keyword-based detection)
+├── export_final.py            # Phase 7 – Final export & summary stats
+├── main.py                    # Phase 8 – Pipeline orchestration
+│
+├── requirements.txt
+├── README.md
+└── .gitignore
+
+# How to Run the Pipeline
+1️.Install dependencies
+pip install -r requirements.txt
+
+2️. Run the full pipeline
+python main.py
+
+
+The pipeline runs end-to-end without manual intervention and logs each phase.
+
+## Pipeline Phases
+# Phase 1 – Data Extraction & Consolidation
+
+-Merges multiple public OAR CSV exports
+
+-Filters by the required countries:"France, Italy, Spain, Portugal, Morocco, Greece, Malta"
+
+-Preserves data traceability using source file metadata
+
+# Phase 2 – Company Cleaning
+
+-Normalizes company names (punctuation, casing, legal suffixes)
+
+-Standardizes country information
+
+-Generates a deterministic company_id using hashing
+
+# Phase 3 – Facility Processing
+
+-Cleans and normalizes facility names
+
+-Generates unique facility_id
+
+-Links facilities to companies
+
+Outputs:
+
+facilities_clean.csv
+
+company_facilities.csv
+
+# Phase 4 – Relational Structuring
+
+-Builds consistent relational tables:companies,facilities,company_facilities.
+
+-Ensures no orphan records
+
+# Phase 5 – Analytics & Dashboards
+
+-Companies by country (bar chart)
+
+-Facilities per company (distribution)
+
+Outputs saved as PNG files
+
+# Phase 6 – AI Module
+
+-Simple keyword-based sustainability signal detection
+
+-Flags companies mentioning sustainability-related terms
+
+Outputs structured CSV results
+
+# Phase 7 – Final Export
+
+-Exports final datasets
+
+-Generates summary statistics:Total companies,Total facilities,Average facilities per company,Maximum facilities per company
+
+# Phase 8 – Orchestration
+
+-main.py runs all phases in order
+
+-Handles errors and logs execution progress
+
+## Dataset Summary (Current Run)
+Metric	Value
+Total companies	837
+Total facilities	852
+Avg facilities per company	~1.02
+Max facilities per company	3
+## Data Access Limitation (Important Note)
+
+Full Open Supply Hub API access and large bulk exports are paid.
+Therefore, this pipeline was validated on a public subset of data (852 facilities).
+
+The pipeline is fully scalable: adding more raw CSV exports automatically increases data volume without any code changes.
+
+This reflects real-world constraints and demonstrates robust, production-ready design.
+
+
+
+## Conclusion
+
+This project delivers a complete, automated, and scalable data pipeline for supply chain traceability analysis using OAR data.
+It demonstrates strong data engineering fundamentals, clean architecture, and practical handling of real-world data constraints.
+
+
 
 
 
